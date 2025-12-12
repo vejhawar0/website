@@ -1,25 +1,28 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 function Header({ title }) {
   return <h1>{title ? title : 'Default title'}</h1>;
 }
 
+function ReturnMDX() {
+  
+}
  
 export default function HomePage() {
-  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];
+  const names = ['Ada Lovelace', 'Grace Hopper', 'Margaret Hamilton'];  
 
  
   return (
     <div>
       <Header title="Develop. Preview. Ship." />
       <nav>
-        <Link href="/about">About</Link>
+        <Link href="/">About</Link>
       </nav>
       <ul>
         {names.map((name) => (
           <li key={name}>{name}</li>
-        ))}
-      </ul>
+        ))} 
+      </ul> 
     </div>
   );
 }
