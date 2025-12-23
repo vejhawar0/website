@@ -1,6 +1,6 @@
 import { useMDXComponents } from "@/mdx-components.tsx";
 import './globals.css';
-import Navbar from "@/lib/page_elements";
+import Navbar from "@/lib/navbar";
 
 export const metadata = {
   title: 'Next.js',
@@ -10,8 +10,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      < Navbar />
-      <body>{children}</body> 
+      
+      <body>
+      <Navbar />
+      {children}
+      </body> 
     </html>
   );
 }
