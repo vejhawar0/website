@@ -1,6 +1,7 @@
 import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
+import { POSTS_PER_PAGE } from "./constants"
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects")
@@ -44,10 +45,6 @@ export function getAllProjects(): Post[] {
   return getAllContent(PROJECTS_DIR)
 }
 
-// export function getContentBySlug(DIR: string, slug: string): Post {
-//   const posts = getAllContent(DIR)
-// }
-
 export function getPostBySlug(slug: string): Post {
   const posts = getAllPosts()
   const post = posts.find((p) => p.slug === slug)
@@ -57,4 +54,18 @@ export function getPostBySlug(slug: string): Post {
   }
 
   return post
+}
+
+export function getPaginatedPosts(page: number): Post[] {
+  const allPosts = getAllPosts().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+
+  const start = (page - 1) * POSTS_PER_PAGE;
+
+  const end = (page - 1) * POSTS_PER_PAGE + POSTS_PER_PAGE;
+
+  return allPosts.slice(start, end);
+}
+
+export function getTotalPostPages(): number {
+  return Math.ceil(getAllPosts.length / POSTS_PER_PAGE);
 }

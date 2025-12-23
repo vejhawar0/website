@@ -1,6 +1,6 @@
 export const dynamic = "force-static"
 
-import { getAllPosts, getPostBySlug } from "@/lib/posts"
+import { getAllProjects, getPostBySlug } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
 
@@ -11,7 +11,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllPosts()
+  const posts = getAllProjects()
 
   return posts.map((post) => ({
     slug: post.slug,
