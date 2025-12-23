@@ -31,7 +31,7 @@ export function getAllPosts(): Post[] {
     return {
       title: data.title,
       slug: data.slug,
-      date: String(data.date),
+      date: data.date,
       description: data.description,
       content,
     //   last_modified: lastModifiedDate
