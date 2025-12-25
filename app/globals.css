@@ -16,10 +16,15 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
+
+}
+
+.nav-link {
+  color: white; 
 }
 
 a:link, a:visited, a:active {
-  color: white;
+  color: pink;
   text-decoration: none;
 }
 
