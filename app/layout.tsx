@@ -1,6 +1,7 @@
 import { useMDXComponents } from "@/mdx-components.tsx";
 import './globals.css';
 import Navbar from "@/lib/navbar";
+import "katex/dist/katex.min.css";
 
 export const metadata = {
   title: 'Next.js',
