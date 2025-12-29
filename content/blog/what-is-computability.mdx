@@ -6,10 +6,15 @@ description: A brief introduction to computing, inlcuding but not limited to DFA
 ---
 
 ### Exposition
-With the [proliferation of technology](https://en.wikipedia.org/wiki/Information_Age), brought about by the decreasing size of a transistor, computers have ushered in a new era. On the consumer side, computers have taken over the fields of entertainment, knowledge-acquisition, and communication, empowering customers and boosting productivity. In particular, the barrier for developing larger scale programs has decreased dramatically, enabling more people to study and implement their own programs on computers.
+With the [proliferation of technology](https://en.wikipedia.org/wiki/Information_Age) from the discovery of transistors, computers have ushered in a new era. On the consumer side, computers have taken over the fields of entertainment, knowledge-acquisition, and communication, empowering customers and boosting productivity. In particular, the barrier for developing larger scale programs has decreased dramatically, enabling more people to study and implement their own programs on computers.
 
-Near the end of an introductory Data Structures and Algorithms course, you are introduced to the concept of P and NP. A quick resource highlighting the definitions can be found [here](https://www.contrib.andrew.cmu.edu/~hussainu/decision_problem.html). Shortly afterwards, you may learn about the [Halting Problem](https://www.reddit.com/r/explainlikeimfive/comments/nkoaol/eli5_the_halting_problem_in_computer_science/gzdv3yx/), which is conclusively incomputable for all computers. You may be tempted to ask why. How can we be certain that not a single algorithm can ever solve the halting problem? This is a post attempts to address that problem by delving into the mathematical concept of a computer.
+Near the end of an introductory Data Structures and Algorithms course, you are introduced to the concept of P and NP. A quick resource highlighting the definitions can be found [here](https://www.contrib.andrew.cmu.edu/~hussainu/decision_problem.html). Shortly afterwards, you may learn about the [Halting Problem](https://www.reddit.com/r/explainlikeimfive/comments/nkoaol/eli5_the_halting_problem_in_computer_science/gzdv3yx/), which cannot be definitively solved by any computer or algorithm whatsoever. You might be tempted to ask "why?" How is it that we can conclude that no algorithm exists to solve this problem? I hope to provide an intuitive explanation for what it means for a problem to be computable.
 
-(Write authors note here)
+Before introducing computation, I will assume that you have a basic understanding of [set notiation](https://www.cuemath.com/numbers/set-notation/). Some practice with proof techniques would be greatly helpful as well. Furthermore, you should remember the following terms as you continue to read. Within computation, the most basic unit that we operate on are symbols, and the set of all relevant symbols will be denoted as $\Sigma$. These symbols can quite literally be anything. For the purposes of this text, we will assume that $\Sigma = \{0, 1 \}$, however, we could also have that $\Sigma = \{ a, b, e \}$ or even $\Sigma = \{ 0, a, \% \}$! There is no limitation to the symbols that we use, as long as they are describable and unique. We can combine any arbitrary number of these symbols in any order to produce a string that we will denote with $w$. An example, using $\Sigma = \{0, 1 \}$ would be $w = 00011001110$. If a string has no characters in it, we denote it as $\eps$. On the other hand, we denote $\Sigma^*$ to be the set of all strings of any arbitrary length for the relevant symbols. Note that $|\Sigma^*| = \\mathbb{N}$. Lastly, we will introduce $L \subseteq \Sigma^*$, which is our language or the set of a selection of strings. 
 
-### 
+You might question what strings and languages have to do with computability. After all 
+
+### Part 1: Finite Automaton
+
+
+
