@@ -35,7 +35,7 @@
     "**/*.mts",
     "**/*.ts",
     "**/*.tsx"
-, "app/blog/page.mdx"  ],
+, "app/(site)/blog/page.mdx"  ],
   "exclude": [
     "node_modules"
   ]

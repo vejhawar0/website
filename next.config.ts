@@ -7,6 +7,15 @@ const nextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['mdx','tsx'],
   // Optionally, add any other Next.js config below
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/home',
+        permanent: false,
+      }
+    ]
+  }
 }
  
 const withMDX = createMDX({

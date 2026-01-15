@@ -16,7 +16,6 @@ body {
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-
 }
 
 .nav-link {
@@ -30,4 +29,16 @@ a:link, a:visited, a:active {
 
 a:hover {
   color: red;
+}
+
+.contentlist {
+  line-height: 6px;
+
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
 }

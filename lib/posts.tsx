@@ -2,6 +2,7 @@ import fs from "fs"
 import path from "path"
 import matter from "gray-matter"
 import { POSTS_PER_PAGE } from "./constants"
+import Link from "next/link"
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects")
@@ -47,6 +48,17 @@ export function getAllProjects(): Post[] {
 
 export function getPostBySlug(slug: string): Post {
   const posts = getAllPosts()
+  const post = posts.find((p) => p.slug === slug)
+
+  if (!post) {
+    throw new Error(`Post not found for path: ${slug}`)
+  }
+
+  return post
+}
+
+export function getProjectBySlug(slug: string): Post {
+  const posts = getAllProjects()
   const post = posts.find((p) => p.slug === slug)
 
   if (!post) {

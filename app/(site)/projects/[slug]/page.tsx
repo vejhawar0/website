@@ -1,6 +1,6 @@
 export const dynamic = "force-static"
 
-import { getAllProjects, getPostBySlug } from "@/lib/posts"
+import { getAllProjects, getProjectBySlug } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
 
@@ -24,7 +24,7 @@ export default async function BlogPostPage({ params, }: {params: Promise<{ slug:
     let post
 
     try {
-        post = getPostBySlug(slug)
+        post = getProjectBySlug(slug)
     } catch {
         notFound()
     }
