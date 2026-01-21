@@ -32,7 +32,7 @@ export default async function BlogPostPage({ params, }: {params: Promise<{ slug:
         <article className="prose mx-auto py-10">
         <h1>{post.title}</h1>
         <p className="text-sm text-gray-500">
-            {post.date.toLocaleDateString("en-US", {
+            { new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",

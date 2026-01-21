@@ -15,7 +15,7 @@ export async function BlogList() {
             </Link>
             <p>{post.description}</p>
             <small>
-                {post.date.toLocaleDateString("en-US", {
+                {new Date(post.date).toLocaleDateString("en-US", {
                 year: "numeric",
                 month: "long",
                 day: "numeric",
@@ -44,7 +44,7 @@ export async function ProjectList() {
               </Link>
               <p>{post.description}</p>
               <small>
-                  {post.date.toLocaleDateString("en-US", {
+                  {new Date(post.date).toLocaleDateString("en-US", {
                   year: "numeric",
                   month: "long",
                   day: "numeric",

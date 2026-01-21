@@ -1,5 +1,5 @@
 import Navbar from "@/lib/navbar";
-import { useMDXComponents } from "@/mdx-components.tsx";
+import { useMDXComponents } from "@/mdx-components";
 
 export default function RootLayout({ children }) {
   return (
