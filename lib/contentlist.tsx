@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { getAllPosts, getAllProjects } from "@/lib/posts"
+import { getAllPosts, getAllProjects, getAllSims } from "@/lib/posts"
 
 
 export async function BlogList() {
@@ -11,6 +11,35 @@ export async function BlogList() {
         {posts.map((post) => (
           <li key={post.slug} style={{ marginBottom: "2rem" }}>
             <Link href={`/blog/${post.slug}`}>
+              <h4>{post.title}</h4>
+            </Link>
+            <p>{post.description}</p>
+            <small>
+                {new Date(post.date).toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+                }
+                )
+                }
+
+            </small>
+          </li>
+        ))}
+      </ul>
+    </div>
+  )
+}
+
+export async function SimsList() {
+  const posts = await getAllSims()
+
+  return (
+    <div className="contentlist">
+      <ul>
+        {posts.map((post) => (
+          <li key={post.slug} style={{ marginBottom: "2rem" }}>
+            <Link href={`/sims/${post.slug}`}>
               <h4>{post.title}</h4>
             </Link>
             <p>{post.description}</p>

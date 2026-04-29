@@ -6,6 +6,7 @@ import Link from "next/link"
 
 const BLOG_DIR = path.join(process.cwd(), "content/blog")
 const PROJECTS_DIR = path.join(process.cwd(), "content/projects")
+const SIMS_DIR = path.join (process.cwd(), "content/sims")
 
 export type Post = {
   title: string
@@ -46,6 +47,10 @@ export function getAllProjects(): Post[] {
   return getAllContent(PROJECTS_DIR)
 }
 
+export function getAllSims(): Post[] {
+  return getAllContent(SIMS_DIR)
+}
+
 export function getPostBySlug(slug: string): Post {
   const posts = getAllPosts()
   const post = posts.find((p) => p.slug === slug)
@@ -65,6 +70,16 @@ export function getProjectBySlug(slug: string): Post {
     throw new Error(`Post not found for path: ${slug}`)
   }
 
+  return post
+}
+
+export function getSimsBySlug(slug: string): Post {
+  const posts = getAllSims()
+  const post = posts.find((p) => p.slug === slug)
+
+  if (!post) {
+    throw new Error(`Post not found for path: ${slug}`)
+  }
   return post
 }
 

@@ -1,9 +1,8 @@
 export const dynamic = "force-static"
 
-import { getAllProjects, getProjectBySlug } from "@/lib/posts"
+import { getAllSims, getSimsBySlug } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
-import Navbar from "@/lib/navbar";
 
 type Props = {
   params: {
@@ -12,7 +11,7 @@ type Props = {
 }
 
 export async function generateStaticParams() {
-  const posts = getAllProjects()
+  const posts = getAllSims()
 
   return posts.map((post) => ({
     slug: post.slug,
@@ -20,19 +19,15 @@ export async function generateStaticParams() {
 }
 
 export default async function BlogPostPage({ params, }: {params: Promise<{ slug: string }>}) {
-  
     const { slug } = await(params) 
     let post
-
     try {
-        post = getProjectBySlug(slug)
+        post = getSimsBySlug(slug)
     } catch {
         notFound()
     }
     return (
-        
         <article className="prose mx-auto py-10">
-        <Navbar />
         <h1>{post.title}</h1>
         <p className="text-sm text-gray-500">
             { new Date(post.date).toLocaleDateString("en-US", {
