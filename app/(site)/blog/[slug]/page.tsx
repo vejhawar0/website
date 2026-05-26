@@ -3,7 +3,6 @@ export const dynamic = "force-static"
 import { getAllPosts, getPostBySlug } from "@/lib/posts"
 import { notFound } from "next/navigation"
 import { MDXRemote } from "next-mdx-remote/rsc"
-import Navbar from "@/lib/navbar";
 
 type Props = {
   params: {
@@ -31,7 +30,6 @@ export default async function BlogPostPage({ params, }: {params: Promise<{ slug:
     }
     return (
         <article className="prose mx-auto py-10">
-        <Navbar />
         <h1>{post.title}</h1>
         <p className="text-sm text-gray-500">
             {new Date(post.date).toLocaleDateString("en-US", {
