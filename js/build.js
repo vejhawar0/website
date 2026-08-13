@@ -1,5 +1,5 @@
 import { render_content } from './posts.js';
-import { readdir, writeFile } from 'fs/promises';
+import { readdir, writeFile, mkdir } from 'fs/promises';
 
 async function render_posts()
 {
@@ -9,12 +9,18 @@ async function render_posts()
     {
 	const files = await readdir(directory_path);
 
-        for (const file of files) {
-	    const html = await render_content(directory_path + file);
+        for (const file of files) 
+        {
+	        const { metadata, parsed_html } = await render_content(directory_path + file);
+            const slug = metadata.slug;
+            const category = metadata.category;
             console.log(`Rendered post ${file}`);
-	    const output_path = `../posts/${file.replace('.md', '.html')}.html`;
-	    await writeFile(output_path, html);
-	    console.log(html);
+
+            await mkdir(`../${category}/${slug}`, {recursive: true});
+            console.log("Directory successfully established");
+
+	        const output_path = `../${category}/${slug}/index.html`;
+	        await writeFile(output_path, parsed_html);
         }
     }
     catch (error) {

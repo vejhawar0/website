@@ -3,6 +3,7 @@ title: My First Post
 slug: my-first-post
 date: 2025-12-28
 description: Introduction on what the blog is about
+category: blogs
 ---
 
 **This post wasn't supposed to exist.** 
