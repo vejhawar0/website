@@ -23,21 +23,42 @@ export function parse_post(content)
     return { metadata, remaining_content };
 }
 
+export async function instill_template(content, title)
+{
+    try
+    {
+
+    let template = await readFile("./html.template", 'utf8');
+
+    template = template.replaceAll("$pagetitle$", title);
+    template = template.replace("$body$", content);
+
+    return template;
+    }
+
+    catch (error)
+    {
+        console.error(`Unable to instill template for ${title}`);
+    }
+
+}
+
 // Takes in a string, containing the path of content being rendered. Returns html along with metadata of a file.
 export async function render_content(path)
 {
     try
     {
 	    const content = await readFile(path, 'utf8');
-	    console.log(content);
+	    // console.log(content);
 
         const { metadata, remaining_content } = parse_post(content);
 	
-    	const parsed_html = marked.parse(remaining_content);
+    	let parsed_html = marked.parse(remaining_content);
+        parsed_html = await instill_template(parsed_html, metadata.title);
     	const result = { metadata, parsed_html };
         return result;
     }
-    catch (error) 
+    catch (error)   
     {
 	    console.error(`Unable to read file ${path}`);
     }		

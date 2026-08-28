@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>$pagetitle$</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./css/globals.css>
+		<meta name="description" content="$desc$">
+	</head>
+	<body>
+		<main>
+			<h1>$pagetitle$</h1>
+            $body$
+		</main>
+	</body>
+</html>
