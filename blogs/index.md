@@ -1,6 +1,6 @@
 ---
 title: Blogs
-slug: blogs
+slug: index
 date: 2025-12-28
 description: Introduction on what the blog is about
 category: blogs

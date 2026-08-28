@@ -16,7 +16,7 @@ async function build_pages(path)
             if (!file.name.endsWith("README.md") && file.name.endsWith(".md"))
                 await create_file(path, file.name);
 
-            else if (!file.name.endsWith("build") && !file.name.startsWith(".") && file.isDirectory())
+            else if (!file.name.endsWith("js") && !file.name.endsWith("build") && !file.name.startsWith(".") && file.isDirectory())
             {
                 const subdirectory = "./build" + path + file.name;
                
