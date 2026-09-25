@@ -4,9 +4,19 @@
 		<title>$pagetitle$</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="/css/globals.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"> 
+        <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css"></script>
+        <script defer src= "https://cdn.jsdelivr.net/npm/katex@0.16.22/dist/katex.min.css" onload="renderMathInElement(document.body);"></script>
+
+
 		<meta name="description" content="$desc$">
 	</head>
 	<body>
+        <nav>
+			<a class="navbar" href="/">Home</a>
+			<a class="navbar" href="/projects">Projects</a>
+            <a class="navbar" href="/blogs">Blogs</a>
+		</nav>
 		<main>
 			<h1>$pagetitle$</h1>
             $body$

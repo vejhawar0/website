@@ -1,6 +1,7 @@
-import { marked } from 'marked';
+import { Marked } from 'marked';
 import { readFile } from 'fs/promises';
 import YAML from 'yaml';
+import markedKatex from 'marked-katex-extension';
 
 export function parse_post(content)
 {
@@ -23,7 +24,7 @@ export function parse_post(content)
     return { metadata, remaining_content };
 }
 
-export async function instill_template(content, title)
+export async function instill_template(content, title, description)
 {
     try
     {
@@ -32,6 +33,7 @@ export async function instill_template(content, title)
 
     template = template.replaceAll("$pagetitle$", title);
     template = template.replace("$body$", content);
+    template = template.replace("$desc$", description);
 
     return template;
     }
@@ -48,13 +50,19 @@ export async function render_content(path)
 {
     try
     {
+        const marked = new Marked();
+        marked.use(markedKatex({
+            throwOnError: false,
+            output: 'htmlAndMathml'
+        }));
+
 	    const content = await readFile(path, 'utf8');
 	    // console.log(content);
 
         const { metadata, remaining_content } = parse_post(content);
-	
+    
     	let parsed_html = marked.parse(remaining_content);
-        parsed_html = await instill_template(parsed_html, metadata.title);
+        parsed_html = await instill_template(parsed_html, metadata.title, metadata.description);
     	const result = { metadata, parsed_html };
         return result;
     }

@@ -11,11 +11,23 @@ body {
   margin: auto; 
 }
 
+nav {
+	display: flex;
+	flex-direction: row;
+	column-gap: 1rem;
+	padding-bottom: 0.1rem;
+	border-style: none none solid none;
+	border-width: 0.15rem;
+    
+}
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
+  padding: 10px 10px;
+  justify-content: left;
+  flex-direction: row;
+  justify-content: space-evenly;
+  font-size: 1.2rem;
+  
 }
 
 .nav-link {
@@ -33,7 +45,6 @@ a:hover {
 
 .contentlist {
   line-height: 6px;
-
 }
 
 ul {
